@@ -72,7 +72,7 @@ bloom-560m:
 	make ui
 
 	TOKENIZERS_PARALLELISM=false \
-	MODEL_NAME=/models/bloom-560m \
+	MODEL_NAME=/models/bloom-7b1 \
 	MODEL_CLASS=AutoModelForCausalLM \
 	DEPLOYMENT_FRAMEWORK=hf_accelerate \
 	DTYPE=bf16 \
