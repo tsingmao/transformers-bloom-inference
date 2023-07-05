@@ -11,7 +11,6 @@ gen-proto:
 	rm -rf inference_server/model_handler/grpc_utils/pb/*.py-e
 
 bloom-7b1:
-
 	TOKENIZERS_PARALLELISM=false \
 	MODEL_NAME=/models/bloom-7b1 \
 	MODEL_CLASS=AutoModelForCausalLM \
