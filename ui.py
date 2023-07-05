@@ -15,6 +15,7 @@ def get_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
 
     group = parser.add_argument_group(title="launch config")
+    group.add_argument("--model", type=str, default="/models/bloom-7b1", help="model local path")
     group.add_argument("--ui_host", type=str, default="127.0.0.1", help="host address for UI")
     group.add_argument("--ui_port", type=int, default=5001, help="port number for UI")
     group.add_argument(
@@ -34,7 +35,7 @@ class Server:
         self.generation_backend_port = args.generation_backend_port
         self.workers = 1
 
-        self.tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom")
+        self.tokenizer = AutoTokenizer.from_pretrained(args.model)
 
         self.app = FastAPI(
             routes=[
